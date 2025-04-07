@@ -106,10 +106,10 @@
             
             <!-- Navigation buttons -->
             <div class="flex flex-wrap gap-4">
-                <a href="#" class="px-8 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-300">
+                <a href="#recent-work" class="px-8 py-2 bg-red-600 text-white rounded-full hover:bg-red-700 transition duration-300" onclick="scrollToSection('recent-work'); return false;">
                     Video
                 </a>
-                <a href="#" class="px-8 py-2 bg-transparent text-white hover:bg-gray-800 transition duration-300">
+                <a href="#about" class="px-8 py-2 bg-transparent border border-white text-white rounded-full hover:bg-gray-800 transition duration-300" onclick="scrollToSection('about'); return false;">
                     Tentang Saya
                 </a>
             </div>
@@ -211,7 +211,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Add ID to the Work section -->
+    <div class="container" id="portfolio">
         <div class="header">
             <h2 class="ml-20">Work</h2>
             <div class="flex items-start">
@@ -290,7 +291,7 @@
             
             <!DOCTYPE html>
             <!-- Recent Work Section -->
-            <div class="recent-work mt-20 mb-20">
+            <div class="recent-work mt-20 mb-20" id="recent-work">
                 <h2 class="text-white text-4xl font-bold mb-8 text-center">RECENT <span class="text-red-600">WORK</span></h2>
                 <!-- Modified grid layout -->
                 <div class="grid grid-cols-4 gap-4 mx-auto max-w-7xl px-4">
@@ -394,7 +395,7 @@
             
             <!DOCTYPE html>
             <!-- Blog Section -->
-            <div class="blog-section bg-zinc-900 px-4 py-16">
+            <div class="blog-section bg-zinc-900 px-4 py-16" id="blog">
                 <div class="max-w-7xl mx-auto">
                     <div class="flex items-center gap-2 mb-12">
                         <h2 class="text-white text-4xl font-bold">Blog</h2>
@@ -450,7 +451,7 @@
             
             <!DOCTYPE html>
             <!-- About Me Section -->
-            <div class="about-section bg-zinc-900 py-20 relative overflow-hidden">
+            <div class="about-section bg-zinc-900 py-20 relative overflow-hidden" id="about">
 <!-- Background Text Effect with Scroll Animation -->
 <div class="absolute top-0 left-0 w-full overflow-hidden opacity-5 whitespace-nowrap" style="font-size: 150px; letter-spacing: 8px;">
     <div class="scroll-text" style="animation: scrollText 90s linear infinite;">
@@ -536,7 +537,8 @@
             
             <!DOCTYPE html>
             <!-- Contact Section -->
-            <div class="contact-section bg-zinc-900 px-4 py-16">
+            <!-- Add ID to the Contact section -->
+            <div class="contact-section bg-zinc-900 px-4 py-16" id="contact">
                 <div class="max-w-7xl mx-auto">
                     <div class="flex flex-col lg:flex-row gap-16">
                         <!-- Left Side - Contact Info -->
@@ -610,13 +612,13 @@
                                 <div>
                                     <p class="text-gray-400 mb-2">Social :</p>
                                     <div class="flex gap-4">
-                                        <a href="#" class="text-white hover:text-red-500">
+                                        <a href="https://www.instagram.com/fathila_lufiii/#" target="_blank" class="text-white hover:text-red-500">
                                             <img src="foto video/mdi_instagram.png" alt="Instagram" class="h-6 w-6">
                                         </a>
-                                        <a href="#" class="text-white hover:text-red-500">
+                                        <a href="https://www.tiktok.com/@musangsss?is_from_webapp=1&sender_device=pc" target="_blank" class="text-white hover:text-red-500">
                                             <img src="foto video/ic_baseline-tiktok.png" alt="TikTok" class="h-6 w-6">
                                         </a>
-                                        <a href="#" class="text-white hover:text-red-500">
+                                        <a href="https://www.youtube.com/@lutfifathilah410" target="_blank" class="text-white hover:text-red-500">
                                             <img src="foto video/Vector.png" alt="YouTube" class="h-6 w-6">
                                         </a>
                                     </div>
@@ -624,20 +626,21 @@
                             </div>
 
 <!-- Quick Links -->
+<!-- Quick Links -->
 <div class="grid grid-cols-2 gap-8 mt-8">
     <div>
         <h4 class="text-white font-semibold mb-4">Quick Links</h4>
         <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Homepage</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Recent Work</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="#top" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToTop(); return false;">Homepage</a></li>
+            <li><a href="#recent-work" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToSection('recent-work'); return false;">Recent Work</a></li>
+            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToSection('portfolio'); return false;">Portfolio</a></li>
         </ul>
     </div>
     <div>
-                <ul class="space-y-2">
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+        <ul class="space-y-2">
+            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToSection('contact'); return false;">Contact</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToSection('about'); return false;">About</a></li>
+            <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors" onclick="scrollToSection('blog'); return false;">Blog</a></li>
         </ul>
     </div>
 </div>
@@ -706,14 +709,15 @@
     </div>
     
     <div class="flex flex-col items-center justify-center h-full">
+        <!-- Update the menu link -->
         <nav class="text-center">
             <ul class="space-y-8">
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">HOMEPAGE</a></li>
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">PORTOFOLIO</a></li>
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">RECENT WORKS</a></li>
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">CONTACT</a></li>
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">BLOG</a></li>
-                <li><a href="#" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block">ABOUT</a></li>
+                <li><a href="#top" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToTop(); return false;">HOMEPAGE</a></li>
+                <li><a href="#portfolio" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToSection('portfolio'); return false;">PORTOFOLIO</a></li>
+                <li><a href="#recent-work" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToSection('recent-work'); return false;">RECENT WORKS</a></li>
+                <li><a href="#contact" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToSection('contact'); return false;">CONTACT</a></li>
+                <li><a href="#blog" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToSection('blog'); return false;">BLOG</a></li>
+                <li><a href="#about" class="text-white text-4xl hover:text-red-500 transition-colors duration-300 block" onclick="scrollToSection('about'); return false;">ABOUT</a></li>
             </ul>
         </nav>
     </div>
@@ -744,4 +748,26 @@
         });
     });
 </script>
+
+<!-- Add this script at the bottom of your body tag -->
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        // Close the menu after clicking
+        document.getElementById('menu-overlay').classList.add('hidden');
+    }
+
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            // Close the menu after clicking
+            document.getElementById('menu-overlay').classList.add('hidden');
+        }
+    }
+</script>
                                
+
