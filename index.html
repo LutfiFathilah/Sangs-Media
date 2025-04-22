@@ -55,44 +55,57 @@
                 </div>
             </div>
             
-            <!-- Main heading -->
-<h1 class="text-white text-5xl md:text-6xl font-extrabold leading-tight mb-16 animate-fade-in">
-    <span class="inline-block animate-slide-up" style="animation-delay: 0.2s;">VIDEO AND EDITING</span><br>
-    <span class="inline-block animate-slide-up" style="animation-delay: 0.4s;">SOLUTIONS FOR</span><br>
-    <span class="inline-block animate-slide-up" style="animation-delay: 0.6s;">YOU</span>
+<!-- Main heading -->
+<h1 class="text-white text-5xl md:text-6xl font-extrabold leading-tight mb-16">
+    <span class="inline-block animate-text-reveal">VIDEO AND EDITING</span><br>
+    <span class="inline-block animate-text-reveal" style="animation-delay: 0.5s;">SOLUTIONS FOR</span><br>
+    <span class="inline-block animate-text-reveal" style="animation-delay: 1s;">YOU</span>
 </h1>
 
 <style>
-    @keyframes slideUp {
-        from {
+    @keyframes textReveal {
+        0% {
             opacity: 0;
-            transform: translateY(30px);
+            clip-path: inset(0 100% 0 0);
+            transform: skew(-10deg);
         }
-        to {
+        30% {
             opacity: 1;
-            transform: translateY(0);
+            clip-path: inset(0 0 0 0);
+            transform: skew(0deg);
         }
-    }
-
-    @keyframes fadeIn {
-        from {
+        80% {
+            opacity: 1;
+            clip-path: inset(0 0 0 0);
+            transform: skew(0deg);
+        }
+        100% {
             opacity: 0;
-        }
-        to {
-            opacity: 1;
+            clip-path: inset(0 0 0 100%);
+            transform: skew(10deg);
         }
     }
 
-    .animate-fade-in {
-        animation: fadeIn 0.5s ease-out forwards;
-    }
-
-    .animate-slide-up {
+    .animate-text-reveal {
         opacity: 0;
-        animation: slideUp 0.8s ease-out forwards;
+        animation: textReveal 4s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        display: inline-block;
+        position: relative;
+        background: linear-gradient(90deg, #fff, #4fa3ff, #ff4f4f);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        transition: all 0.3s ease;
+    }
+
+    .animate-text-reveal:hover {
+        transform: scale(1.05);
+        text-shadow: 
+            0 0 20px rgba(79, 163, 255, 0.5),
+            0 0 20px rgba(255, 79, 79, 0.5);
     }
 </style>
-            </h1>
+</h1>
             
             <!-- Subheading in Indonesian -->
             <p class="text-gray-300 text-2xl mb-24">
