@@ -91,10 +91,7 @@
         animation: textReveal 4s cubic-bezier(0.77, 0, 0.175, 1) infinite;
         display: inline-block;
         position: relative;
-        background: linear-gradient(90deg, #fff, #4fa3ff, #ff4f4f);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        color: #fff;
         transition: all 0.3s ease;
     }
 
@@ -635,17 +632,39 @@
 }
 </style>
                         
-                        <!-- About Content -->
-                        <div class="w-full md:w-2/3">
-                            <h3 class="text-white text-2xl font-semibold mb-4">Hi Saya Lutfi Fathilah</h3>
-                            <p class="text-gray-300 mb-8 leading-relaxed">
-                                Saya merupakan Mahasiswa Jurusan Bisnis Digital Universitas Negeri Makassar Angkatan 2023. Videografi dan editing adalah kesukaan saya sejak dahulu, Saat ini saya sedang bekerja untuk konten edukasi dokter spesialis nyeri dan editor Balipoto_muse.
-                            </p>
+<!-- About Content -->
+<div class="w-full md:w-2/3">
+    <h3 class="text-white text-2xl font-semibold mb-4 animate-slide-in">Hi Saya Lutfi Fathilah</h3>
+    <p class="text-gray-300 mb-8 leading-relaxed animate-slide-in" id="aboutText">
+        Saya merupakan Mahasiswa Jurusan Bisnis Digital Universitas Negeri Makassar Angkatan 2023. Videografi dan editing adalah kesukaan saya sejak dahulu, Saat ini saya sedang bekerja untuk konten edukasi dokter spesialis nyeri dan editor Balipoto_muse.
+    </p>
+    <style>
+        .animate-slide-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.8s ease forwards;
+        }
 
-                            <!-- Tools Section -->
-                            <div class="mt-8">
-                                <h4 class="text-white text-xl font-semibold mb-4">Produk Dan Aplikasi Yang Saya Gunakan</h4>
-                                <p class="text-gray-400 mb-4">Dalam Menjalankan editing dan shooting video, terdapat produk dan aplikasi yang saya gunakan</p>
+        .animate-slide-in:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <!-- Tools Section -->
+    <div class="mt-8">
+        <h4 class="text-white text-xl font-semibold mb-4 animate-fade-in" style="animation-delay: 5s;">Produk Dan Aplikasi Yang Saya Gunakan</h4>
+        <p class="text-gray-400 mb-4 animate-fade-in" style="animation-delay: 5.5s;">Dalam Menjalankan editing dan shooting video, terdapat produk dan aplikasi yang saya gunakan</p>
                                 
                                 <!-- Tools Icons -->
                                 <div class="flex gap-8 items-center">
