@@ -292,19 +292,39 @@
 </head>
 <body>
     <!-- Add ID to the Work section -->
-    <div class="container animate__animated animate__fadeIn" id="portfolio">
+    <div class="container opacity-0 transition-opacity duration-1000" id="portfolio">
         <div class="header">
-            <h2 class="ml-20 animate__animated animate__fadeInDown animate__delay-1s">Work</h2>
+            <h2 class="ml-20 translate-y-10 opacity-0 transition-all duration-700" data-scroll>Work</h2>
             <div class="flex items-start">
-                <h1 class="title ml-20 animate__animated animate__fadeInLeft animate__delay-1s">KATEGORI <br> VIDEO</h1>
+                <h1 class="title ml-20 translate-x-[-50px] opacity-0 transition-all duration-700" data-scroll>KATEGORI <br> VIDEO</h1>
                 <div class="approach ml-8 mt-2">
                 </div>
-                <p class="text-gray-300 text-base leading-relaxed max-w-5xl animate__animated animate__fadeInRight animate__delay-2s">
+                <p class="text-gray-300 text-base leading-relaxed max-w-5xl translate-x-[50px] opacity-0 transition-all duration-700" data-scroll>
                     My portfolio includes a variety of video and editing services that are essential for the growth of modern businesses. From commercial production, cinematics to educational websites, I showcase my work, created not only for early-stage startups and companies in various stages of growth, but also for established companies with a concrete vision.
                 </p>
             </div>
         </div>
     </div>
+
+    <script>
+        // Intersection Observer setup
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add classes to trigger animations when section is visible
+                    entry.target.classList.add('opacity-100');
+                    entry.target.querySelectorAll('[data-scroll]').forEach(el => {
+                        el.classList.add('translate-x-0', 'translate-y-0', 'opacity-100');
+                    });
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe the portfolio section
+        observer.observe(document.querySelector('#portfolio'));
+    </script>
         <div class="video-gallery">
             <style>
                 .video-item {
