@@ -12,6 +12,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Style untuk tombol musik */
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .music-control:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.8);
+        }
         body {
             font-family: 'Montserrat', sans-serif;
         }
@@ -98,6 +114,53 @@
     </style>
 </head>
 <body class="m-0 p-0 relative">
+    <!-- Add audio element -->
+    <audio id="bgMusic" loop>
+        <source src="foto video/ssstik.io_1745673638091.mp3" type="audio/mp3">
+        Browser Anda tidak mendukung audio tag.
+    </audio>
+
+    <!-- Music control button -->
+    <div class="music-control" onclick="toggleMusic()" style="bottom: 80px;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+        </svg>
+    </div>
+
+    <script>
+        // Music control functionality
+        let isPlaying = true; // Changed to true for autoplay
+        const audio = document.getElementById('bgMusic');
+        
+        // Set initial volume to 30%
+        audio.volume = 0.3;
+        
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-play music when page loads
+        window.addEventListener('load', function() {
+            audio.play().catch(function(error) {
+                // Auto-play was prevented by browser
+                isPlaying = false;
+                console.log("Auto-play prevented:", error);
+            });
+        });
+
+        // Fallback for browsers that block auto-play
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                audio.play();
+                isPlaying = true;
+            }
+        }, { once: true });
+    </script>
     <div class="flex flex-col lg:flex-row h-screen w-full relative">
         <!-- Left section - Content -->
         <div class="w-full lg:w-1/2 bg-zinc-900 p-8 md:p-20 flex flex-col justify-center relative z-10">
