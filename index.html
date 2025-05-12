@@ -12,22 +12,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Style untuk tombol musik */
-        .music-control {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .music-control:hover {
-            transform: scale(1.1);
-            background: rgba(0, 0, 0, 0.8);
-        }
         body {
             font-family: 'Montserrat', sans-serif;
         }
@@ -114,53 +98,7 @@
     </style>
 </head>
 <body class="m-0 p-0 relative">
-    <!-- Add audio element -->
-    <audio id="bgMusic" loop>
-        <source src="foto video/Pray.mp3" type="audio/mp3">
-        Browser Anda tidak mendukung audio tag.
-    </audio>
 
-    <!-- Music control button -->
-    <div class="music-control" onclick="toggleMusic()" style="bottom: 80px;">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="white">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
-        </svg>
-    </div>
-
-    <script>
-        // Music control functionality
-        let isPlaying = true; // Changed to true for autoplay
-        const audio = document.getElementById('bgMusic');
-        
-        // Set initial volume to 90%
-        audio.volume = 1.0;
-        
-        function toggleMusic() {
-            if (isPlaying) {
-                audio.pause();
-            } else {
-                audio.play();
-            }
-            isPlaying = !isPlaying;
-        }
-
-        // Auto-play music when page loads
-        window.addEventListener('load', function() {
-            audio.play().catch(function(error) {
-                // Auto-play was prevented by browser
-                isPlaying = false;
-                console.log("Auto-play prevented:", error);
-            });
-        });
-
-        // Fallback for browsers that block auto-play
-        document.addEventListener('click', function() {
-            if (!isPlaying) {
-                audio.play();
-                isPlaying = true;
-            }
-        }, { once: true });
-    </script>
     <div class="flex flex-col lg:flex-row h-screen w-full relative">
         <!-- Left section - Content -->
         <div class="w-full lg:w-1/2 bg-zinc-900 p-8 md:p-20 flex flex-col justify-center relative z-10">
@@ -1092,14 +1030,14 @@
         }
     }
 </script>
-<!-- WhatsApp Chat Button -->
+<!-- WhatsApp Chat Button - Fixed Position -->
 <style>
     @keyframes float {
         0% {
             transform: translateY(0px);
         }
         50% {
-            transform: translateY(-8px); /* Reduced float height */
+            transform: translateY(-8px);
         }
         100% {
             transform: translateY(0px);
@@ -1108,14 +1046,35 @@
     .whatsapp-float:hover {
         animation: float 2s ease-in-out infinite;
     }
+    
+    /* Ensure button appears on all pages */
+    #whatsapp-button {
+        position: fixed;
+        bottom: 2rem; /* Reduced from 4rem to move lower */
+        right: 2rem; /* Reduced from 4rem to move more right */
+        z-index: 9999; /* Higher z-index to stay on top */
+    }
 </style>
 
-<a href="https://wa.me/6282298056834?text=Halo%20Sangs%20Media,%20saya%20tertarik%20dengan%20layanan%20video%20dan%20editing%20Anda" 
-   target="_blank" 
-   class="fixed bottom-4 right-4 bg-zinc-900 text-white rounded-full p-3 shadow-lg hover:bg-zinc-800 transition-all duration-300 flex items-center gap-2 z-50 whatsapp-float">
-    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.628-5.373-12-12-12 0-6.628-5.373-12-12-12zm6.016 18.846c-.271.393-.595.738-.967 1.027-.371.29-.785.518-1.23.682-.446.164-.924.246-1.433.246-.509 0-.987-.082-1.433-.246-.446-.164-.859-.392-1.23-.682-.372-.289-.696-.634-.967-1.027-.271-.393-.484-.835-.64-1.326-.155-.491-.233-1.015-.233-1.572 0-.557.078-1.081.233-1.572.156-.491.369-.933.64-1.326.271-.393.595-.738.967-1.027.371-.29.784-.518 1.23-.682.446-.164.924-.246 1.433-.246.509 0 .987.082 1.433.246.445.164.859.392 1.23.682.372.289.696.634.967 1.027.271.393.484.835.64 1.326.155.491.233 1.015.233 1.572 0 .557-.078 1.081-.233 1.572-.156.491-.369.933-.64 1.326z"/>
-    </svg>
-    <span class="text-sm font-semibold">Chat Me</span>
-</a>
+<!-- Add button to body -->
+<div id="whatsapp-button">
+    <a href="https://wa.me/6282298056834?text=Halo%20Sangs%20Media,%20saya%20tertarik%20dengan%20layanan%20video%20dan%20editing%20Anda" 
+       target="_blank" 
+       class="bg-zinc-900 text-white rounded-full p-3 shadow-lg hover:bg-zinc-800 transition-all duration-300 flex items-center gap-2 whatsapp-float">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.628-5.373-12-12-12 0-6.628-5.373-12-12-12zm6.016 18.846c-.271.393-.595.738-.967 1.027-.371.29-.785.518-1.23.682-.446.164-.924.246-1.433.246-.509 0-.987-.082-1.433-.246-.446-.164-.859-.392-1.23-.682-.372-.289-.696-.634-.967-1.027-.271-.393-.484-.835-.64-1.326-.155-.491-.233-1.015-.233-1.572 0-.557.078-1.081.233-1.572.156-.491.369-.933.64-1.326.271-.393.595-.738.967-1.027.371-.29.784-.518 1.23-.682.446-.164.924-.246 1.433-.246.509 0 .987.082 1.433.246.445.164.859.392 1.23.682.372.289.696.634.967 1.027.271.393.484.835.64 1.326.155.491.233 1.015.233 1.572 0 .557-.078 1.081-.233 1.572-.156.491-.369.933-.64 1.326z"/>
+        </svg>
+        <span class="text-sm font-semibold">Chat Me</span>
+    </a>
+</div>
+
+<script>
+    // Ensure WhatsApp button is always visible
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappButton = document.getElementById('whatsapp-button');
+        if (whatsappButton) {
+            document.body.appendChild(whatsappButton);
+        }
+    });
+</script>
